@@ -8,6 +8,8 @@
   --additional-background-color: #f5f4fa;
   --address-link-color: rgba(255, 255, 255, 0.6);
   --typical-padding: 94px;
+  --typical-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --typical-timing-duration: 250ms;
 }
 
 body {
@@ -123,13 +125,33 @@ img {
   color: var(--main-color);
 }
 
+.navigation-item {
+  transition: color var(--typical-timing-duration)
+    var(--typical-timing-function);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 .navigation-item:hover,
 .navigation-item:focus {
   color: var(--accent-color);
 }
 
 .navigation .navigation-item.current {
+  position: relative;
   color: var(--accent-color);
+}
+
+.navigation .navigation-item.current::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
 }
 
 .contacts .contacts-item {
@@ -140,6 +162,8 @@ img {
   color: var(--text-content-color);
   display: flex;
   align-items: center;
+  transition: color var(--typical-timing-duration)
+    var(--typical-timing-function);
 }
 
 .contacts-item:hover,
@@ -207,6 +231,8 @@ img {
   color: var(--main-background-color);
   background-color: var(--accent-color);
   cursor: pointer;
+  transition: background-color var(--typical-timing-duration)
+    var(--typical-timing-function);
 }
 
 .hero-button:hover,
@@ -360,6 +386,10 @@ img {
   justify-content: center;
   align-items: center;
   fill: #afb1b8;
+  transition: background-color var(--typical-timing-duration)
+      var(--typical-timing-function),
+    border-radius var(--typical-timing-duration) var(--typical-timing-function),
+    fill var(--typical-timing-duration) var(--typical-timing-function);
 }
 .soc-list-item + .soc-list-item {
   margin-left: 10px;
@@ -407,6 +437,8 @@ img {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: #afb1b8;
+  transition: fill var(--typical-timing-duration) var(--typical-timing-function),
+    border-color var(--typical-timing-duration) var(--typical-timing-function);
 }
 
 .clients-link:hover,
@@ -448,6 +480,11 @@ img {
   cursor: pointer;
   border-radius: 4px;
   border: transparent;
+  transition: color var(--typical-timing-duration)
+      var(--typical-timing-function),
+    background-color var(--typical-timing-duration)
+      var(--typical-timing-function),
+    box-shadow var(--typical-timing-duration), var(--typical-timing-function);
 }
 
 .portfolio-navigation-item .button:hover,
@@ -473,6 +510,8 @@ img {
 
 .portfolio-list-link {
   display: block;
+  transition: box-shadow var(--typical-timing-duration)
+    var(--typical-timing-function);
 }
 
 .portfolio-list-link:hover,
@@ -526,6 +565,8 @@ img {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--address-link-color);
+  transition: color var(--typical-timing-duration)
+    var(--typical-timing-function);
 }
 
 .address .link:hover,
@@ -580,6 +621,8 @@ img {
   justify-content: center;
   align-items: center;
   fill: var(--main-background-color);
+  transition: background-color var(--typical-timing-duration)
+    var(--typical-timing-function);
 }
 
 .connect-link:hover,
