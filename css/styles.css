@@ -317,6 +317,22 @@ img {
 .activity-item {
   flex-basis: calc((100%-90px) / 3);
   margin-left: 30px;
+  position: relative;
+}
+
+.activity-item-title {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--main-background-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  padding-top: 27px;
+  padding-bottom: 27px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* -----------------Team----------------------- */
@@ -520,6 +536,34 @@ img {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio-popup {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-list-link:hover .portfolio-popup-text {
+  transform: translateY(0%);
+}
+
+.portfolio-popup-text {
+  position: absolute;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  bottom: 0;
+  padding-top: 63px;
+  padding-bottom: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: var(--main-background-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform var(--typical-timing-duration)
+    var(--typical-timing-function);
+}
+
 .portfolio-content {
   border: 1px solid #eeeeee;
   padding-top: 20px;
@@ -628,4 +672,55 @@ img {
 .connect-link:hover,
 .connect-link:focus {
   background-color: var(--accent-color);
+}
+
+/* -----------------Modal----------------------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity var(--typical-timing-duration)
+      var(--typical-timing-function),
+    visibility var(--typical-timing-duration) var(--typical-timing-function);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
+  transition: transform var(--typical-timing-duration)
+    var(--typical-timing-function);
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--main-background-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--main-background-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.overlay.is-hidden .modal {
+  transform: scale(0.1) rotateZ(180deg);
 }
