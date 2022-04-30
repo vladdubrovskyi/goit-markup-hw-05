@@ -483,7 +483,6 @@ img {
   padding-right: 22px;
   padding-left: 22px;
   flex-basis: calc((100%-40) / 5);
-  margin-right: 8px;
 
   font-family: inherit;
   font-weight: 500;
@@ -501,6 +500,10 @@ img {
     background-color var(--typical-timing-duration)
       var(--typical-timing-function),
     box-shadow var(--typical-timing-duration), var(--typical-timing-function);
+}
+
+.portfolio-navigation-item + .portfolio-navigation-item {
+  margin-left: 8px;
 }
 
 .portfolio-navigation-item .button:hover,
@@ -713,6 +716,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .is-hidden {
